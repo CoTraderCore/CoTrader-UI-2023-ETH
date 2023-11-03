@@ -11,7 +11,6 @@ import {
     ExchangePortalAddressLight
 } from '../../../config.js'
 
-
 import setPending from '../../../utils/setPending'
 import getMerkleTreeData from '../../../utils/getMerkleTreeData'
 import axios from 'axios'

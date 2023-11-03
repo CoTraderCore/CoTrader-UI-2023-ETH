@@ -223,7 +223,7 @@ function ViewManager() {
                     <Grid py={5} sx={{ display: "flex", alignItems: "center", }}>
                         <GridItem>
                             <Select onChange={(e) => toggle(e.target.value)}>
-                                <option value="" hidden>Sortin tx</option>
+                                <option value="" hidden>Sorting tx</option>
                                 <option value="showFundsTX">{showFundsTX ? "Disable" : "Enable"} funds tx</option>
                                 <option value="showDepositTX">{showDepositTX ? "Disable" : "Enable"} deposit tx</option>
                                 <option value="showTradeTX">{showTradeTX ? "Disable" : "Enable"} trade tx</option>

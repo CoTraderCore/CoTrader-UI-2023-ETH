@@ -72,8 +72,6 @@ function TradeModal(props) {
               <TabList>
                 <Tab>1 inch</Tab>
                 <Tab>UniSWap</Tab>
-                {/* <Tab>CoSwap</Tab>
-                <Tab> Pancake</Tab>*/}
               </TabList>
               <TabPanels>
                 <TabPanel>
@@ -98,30 +96,6 @@ function TradeModal(props) {
                     closeModal={onClose}
                   />
                 </TabPanel>
-                {/* 
-                <TabPanel>
-                  <TradeViaCoSwap
-                    web3={props.web3}
-                    accounts={props.accounts}
-                    smartFundAddress={props.smartFundAddress}
-                    pending={props.pending}
-                    version={props.version}
-                    exchangePortalAddress={exchangePortalAddress}
-                    closeModal={onClose}
-                  />
-                </TabPanel>
-                <TabPanel>
-                  <TradeViaPancake
-                    web3={props.web3}
-                    accounts={props.accounts}
-                    smartFundAddress={props.smartFundAddress}
-                    pending={props.pending}
-                    version={props.version}
-                    exchangePortalAddress={exchangePortalAddress}
-                    closeModal={onClose}
-                  />
-                </TabPanel>
-                */}
               </TabPanels>
             </Tabs>
 

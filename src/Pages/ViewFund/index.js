@@ -159,10 +159,8 @@ function ViewFund(props) {
                     }
                 })()
             )
-
         }
     };
-
     const updateBalance = async () => {
         const fund = await getFundData(address);
         if (_isMounted) {
@@ -219,7 +217,6 @@ function ViewFund(props) {
     const tableHead = useColorModeValue("#1A202C", "#fff")
     const brandColor = useColorModeValue("#422AFB", "##CBC3E3");
     const boxBg = useColorModeValue("#F4F7FE", "gray.600");
-
     return (
         <React.Fragment>
             <Box px={2}>
@@ -404,7 +401,7 @@ function ViewFund(props) {
                                                 ) : null
                                             }
                                             {
-                                                NeworkID === 56 && !_.isEmpty(balance) ?
+                                                NeworkID === 1 && !_.isEmpty(balance) ?
                                                     (
                                                         <GridItem>
                                                             <AssetsAlocationChart AssetsData={balance} version={version} />
@@ -546,7 +543,7 @@ function ViewFund(props) {
                                                                 owner={owner}
                                                             />
                                                             {
-                                                                mainAsset === 'USD' ?
+                                                                mainAsset === 'ETH' ?
                                                                     (
                                                                         <UpdateUSDAsset
                                                                             web3={props.MobXStorage.web3}
@@ -585,7 +582,7 @@ function ViewFund(props) {
                                                                 </Button>
                                                             </Tooltip>
                                                             {
-                                                                mainAsset === "USD" ?
+                                                                mainAsset === "ETH" ?
                                                                     (
                                                                         <Tooltip hasArrow label={props.MobXStorage.web3 ? "You can't use this button because You are not owner of this smart fund" : "Please connect to web3"} bg={tooltipBg}>
                                                                             <Button flexGrow="1" minWidth={{ base: '100%', sm: 'auto' }} bg={allbtnBg} color="#fff" sx={{ _hover: { backgroundColor: "#027CB8" } }}>
