@@ -8,8 +8,6 @@ import {
   useDisclosure,
   ColorModeProvider,
   CSSReset,
-  Alert,
-  AlertIcon,
 } from '@chakra-ui/react';
 import themes from './Theme/Theme';
 import ReactGA from 'react-ga';
@@ -25,7 +23,6 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './Components/common/Navbar';
 import Sidebar from './Components/common/Sidebar';
 import DashboardHeader from './Components/common/DashboardHeader';
-import { NeworkID } from './config';
 
 function App(props) {
   const [isDataLoad, setIsDataLoad] = useState(false);
@@ -83,17 +80,7 @@ function App(props) {
                   <Sidebar isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
                 </GridItem>
                 <GridItem className='example' sx={{ flexGrow: 1, overflow: "auto", }}>
-                  <Box px={2}>
-                    <Box pb={2}>
-                      {
-                        props.MobXStorage.netId && NeworkID !== props.MobXStorage.netId
-                          ?
-                          (
-                            <Alert status='error' sx={{ color: "red", fontSize: "sm", display: "flex", justifyContent: "center", alignItems: "center" }}>  <AlertIcon color="red" />ERROR: WRONG NETWORK</Alert>
-                          )
-                          : null
-                      }
-                    </Box>
+                  <Box mt={2} px={2}>
                     <DashboardHeader />
                   </Box>
                   <Switch>

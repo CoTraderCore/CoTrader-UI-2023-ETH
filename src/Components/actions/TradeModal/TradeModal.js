@@ -24,9 +24,10 @@ import MigrateToNewPortal from '../MigrateToNewPortal.js';
 import SetGasPrice from '../../Settings/SetGasPrice.js';
 
 // trade modals
-// import TradeViaOneInch from './TradeViaOneInch';
-import TradeViaCoSwap from './TradeViaCoSwap';
-import TradeViaPancake from './TradeViaPanCake.js';
+import TradeViaOneInch from './TradeViaOneInch';
+import TradeViaUniSwap from './TradeViaUniSwap';
+// import TradeViaCoSwap from './TradeViaCoSwap';
+// import TradeViaPancake from './TradeViaPanCake.js';
 
 
 function TradeModal(props) {
@@ -69,12 +70,12 @@ function TradeModal(props) {
           <ModalBody>
             <Tabs defaultIndex={0}>
               <TabList>
-                {/* <Tab>1 inch</Tab> */}
-                <Tab>CoSwap</Tab>
-                <Tab> Pancake</Tab>
+                <Tab>1 inch</Tab>
+                <Tab>UniSWap</Tab>
+                {/* <Tab>CoSwap</Tab>
+                <Tab> Pancake</Tab>*/}
               </TabList>
               <TabPanels>
-                {/* 
                 <TabPanel>
                   <TradeViaOneInch
                     web3={props.web3}
@@ -85,8 +86,19 @@ function TradeModal(props) {
                     exchangePortalAddress={exchangePortalAddress}
                     closeModal={onClose}
                   />
-                </TabPanel> 
-                */}
+                </TabPanel>
+                <TabPanel>
+                  <TradeViaUniSwap
+                    web3={props.web3}
+                    accounts={props.accounts}
+                    smartFundAddress={props.smartFundAddress}
+                    pending={props.pending}
+                    version={props.version}
+                    exchangePortalAddress={exchangePortalAddress}
+                    closeModal={onClose}
+                  />
+                </TabPanel>
+                {/* 
                 <TabPanel>
                   <TradeViaCoSwap
                     web3={props.web3}
@@ -109,6 +121,7 @@ function TradeModal(props) {
                     closeModal={onClose}
                   />
                 </TabPanel>
+                */}
               </TabPanels>
             </Tabs>
 

@@ -79,7 +79,7 @@ class TradeViaOneInch extends Component {
 
     // get tokens addresses and symbols from paraswap api
     initData = async () => {
-        if (NeworkID === 56) {
+        if (NeworkID === 1) {
             // get tokens from api
             try {
                 const tokenEndpoint = `${OneInchApi}/1inchToken/${NeworkID}`;
@@ -345,7 +345,7 @@ class TradeViaOneInch extends Component {
 
     gitRateByNetworkId = async (from, to, amount, decimalsFrom, decimalsTo) => {
         // get value from 1 inch proto
-        if (NeworkID === 56) {
+        if (NeworkID === 1) {
             const src = toWeiByDecimalsInput(decimalsFrom, amount.toString(10))
             try {
                 return await this.getRateFrom1inchApi(from, to, src)

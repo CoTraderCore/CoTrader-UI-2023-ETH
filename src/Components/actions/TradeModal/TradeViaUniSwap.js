@@ -5,26 +5,25 @@ import {
     SmartFundABIV7,
     ERC20ABI,
     APIEnpoint,
-    UNIRouterABI,
-    PancakeRouter,
+    // UNIRouterABI,
+    UniswapV2Router02ABI,
+    UniswapV2Router02,
     WETH,
-    ExchangePortalAddressLight
+    ExchangePortalAddressLight      
 } from '../../../config.js'
 
-
-import setPending from '../../../utils/setPending'
-import getMerkleTreeData from '../../../utils/getMerkleTreeData'
+import setPending from '../../../utils/setPending.js'
+import getMerkleTreeData from '../../../utils/getMerkleTreeData.js'
 import axios from 'axios'
-import { toWeiByDecimalsInput, fromWeiByDecimalsInput } from '../../../utils/weiByDecimals'
-import checkTokensLimit from '../../../utils/checkTokensLimit'
+import { toWeiByDecimalsInput, fromWeiByDecimalsInput } from '../../../utils/weiByDecimals.js'
+import checkTokensLimit from '../../../utils/checkTokensLimit.js'
 import Pending from '../../template/spiners/Pending.js'
 import BigNumber from 'bignumber.js'
-import SelectToken from './SelectToken'
+import SelectToken from './SelectToken.js'
 import { Button, Box, FormControl, FormLabel, Alert, Input, InputGroup, Text } from '@chakra-ui/react'
+import { uniswapTokens } from '../../../Storage/uniswapTokens.js'
 
-import pancakeTokens from '../../../Storage/pancakeTokens'
-
-class TradeViaPancake extends Component {
+class TradeViaUniSwap extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -77,7 +76,8 @@ class TradeViaPancake extends Component {
             let symbols = ['BNB', 'bCOT'];
 
             try {
-                const response = await axios.get('https://tokens.pancakeswap.finance/pancakeswap-top-100.json');
+                const response = await axios.get('https://gateway.ipfs.io/ipns/tokens.uniswap.org');
+                console.log("response",response.data.tokens);
                 for (const [, value] of Object.entries(response.data.tokens)) {
                     symbols.push(value.symbol);
                     tokens.push({
@@ -88,8 +88,8 @@ class TradeViaPancake extends Component {
                 }
             } catch (e) {
               console.log("Load pancake loaded from file")
-               tokens = pancakeTokens
-               symbols = pancakeTokens.map(i => i.symbol)
+              tokens=uniswapTokens
+              symbols=uniswapTokens.map(i=>i.symbol)
             }
 
             if (this._isMounted) {
@@ -303,7 +303,7 @@ getRate = async (from, to, amount, decimalsFrom, decimalsTo) => {
             ? WETH
             : to
 
-        const router = new this.props.web3.eth.Contract(UNIRouterABI, PancakeRouter)
+        const router = new this.props.web3.eth.Contract(UniswapV2Router02ABI, UniswapV2Router02)
         const data = await router.methods.getAmountsOut(src, [_from, _to]).call()
         price = data[1]
     }
@@ -395,8 +395,9 @@ pushNewTokenInList = (tokenSymbol, tokenData) => {
 
 render() {
     // console.log("Send", this.state.Send, "Recive", this.state.Recive)
+    console.log(this.props.exchangePortalAddress, ExchangePortalAddressLight)
     return (
-        <Box pt={5}>
+        <Box>
             {
                 this.state.tokens
                     ?
@@ -500,4 +501,4 @@ render() {
     )
 }
 }
-export default TradeViaPancake;
+export default TradeViaUniSwap;
