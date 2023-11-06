@@ -559,13 +559,6 @@ function ViewFund(props) {
                                                 (
                                                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                                                         <Box justifyContent="center" gap={5} sx={{ display: "flex", flexDirection: { base: "column", sm: "column", md: "row" }, width: { base: "100%", md: "70%", lg: "70%" } }}>
-                                                            <TradeModal
-                                                                web3={props.MobXStorage.web3}
-                                                                accounts={props.MobXStorage.account}
-                                                                smartFundAddress={smartFundAddress}
-                                                                pending={pendingHandler}
-                                                                version={version}
-                                                            />
                                                             <Tooltip hasArrow label={props.MobXStorage.web3 ? "You can't use this button because You are not owner of this smart fund" : "Please connect to web3"} bg={tooltipBg}>
                                                                 <Button flexGrow="1" minWidth={{ base: '100%', sm: 'auto' }} bg={allbtnBg} color="#fff" sx={{ _hover: { backgroundColor: "#027CB8" } }}>
                                                                     Exchange

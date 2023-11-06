@@ -304,11 +304,7 @@ class TradeViaOneInch extends Component {
 
     // Validation input and smart fund balance
     validation = async () => {
-        const connector = await this.verifyConnector(this.state.sendTo)
-        if (connector === "0x0000000000000000000000000000000000000000") {
-            this.setState({ ERRORText: 'Sorry this pair not supported' })
-        }
-        else if (this.state.AmountSend === 0) {
+        if (this.state.AmountSend === 0) {
             this.setState({ ERRORText: 'Please input amount' })
         } else if (this.state.Send === this.state.Recive) {
             this.setState({ ERRORText: 'Token directions can not be the same' })

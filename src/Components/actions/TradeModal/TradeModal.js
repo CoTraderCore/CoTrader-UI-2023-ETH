@@ -26,9 +26,6 @@ import SetGasPrice from '../../Settings/SetGasPrice.js';
 // trade modals
 import TradeViaOneInch from './TradeViaOneInch';
 import TradeViaUniSwap from './TradeViaUniSwap';
-// import TradeViaCoSwap from './TradeViaCoSwap';
-// import TradeViaPancake from './TradeViaPanCake.js';
-
 
 function TradeModal(props) {
   const [exchangePortalAddress, setExchangePortalAddress] = useState('');
