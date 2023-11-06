@@ -15,7 +15,7 @@ import setPending from '../../../utils/setPending.js'
 import getMerkleTreeData from '../../../utils/getMerkleTreeData.js'
 import axios from 'axios'
 import { toWeiByDecimalsInput, fromWeiByDecimalsInput } from '../../../utils/weiByDecimals.js'
-import checkTokensLimit from '../../../utils/checkTokensLimit.js'
+import CheckTokensLimit from '../../../utils/checkTokensLimit.js'
 import Pending from '../../template/spiners/Pending.js'
 import BigNumber from 'bignumber.js'
 import SelectToken from './SelectToken.js'
@@ -84,7 +84,7 @@ class TradeViaUniSwap extends Component {
                 });
             }
         } catch (e) {
-            console.log("Load pancake loaded from file")
+            console.log("Load Uniswap loaded from file")
             tokens = uniswapTokens
             symbols = uniswapTokens.map(i => i.symbol)
         }
@@ -215,7 +215,7 @@ class TradeViaUniSwap extends Component {
             const gasPrice = localStorage.getItem('gasPrice') ? localStorage.getItem('gasPrice') : 2000000000
 
             // this function will throw execution with alert warning if there are limit
-            await checkTokensLimit(this.state.sendTo, smartFund)
+            await CheckTokensLimit(this.state.sendTo, smartFund)
 
             // get merkle tree data
             const { proof, positions } = getMerkleTreeData(this.state.sendTo)
@@ -390,8 +390,8 @@ class TradeViaUniSwap extends Component {
 
 
     render() {
-        console.log("Send", this.state.Send, "Recive", this.state.Recive)
-        console.log(this.state.AmountSend,this.state.AmountRecive);
+        // console.log("Send", this.state.Send, "Recive", this.state.Recive)
+        console.log("send", this.state.AmountSend, "receive", this.state.AmountRecive);
         return (
             <Box>
                 {

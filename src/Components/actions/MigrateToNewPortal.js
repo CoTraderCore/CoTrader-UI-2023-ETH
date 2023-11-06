@@ -2,17 +2,18 @@ import React from 'react'
 
 import {
   SmartFundABIV7,
-  ExchangePortalAddressLight,
+  // ExchangePortalAddressLight,
+  ExchangePortalAddressV7
 } from '../../config.js'
 
 import { Alert, Box, Button } from '@chakra-ui/react'
 
 // provide to fund latest version of trade portal
 async function updateTradePortal(web3, accounts, smartFundAddress, closeModal) {
-  console.log(smartFundAddress, ExchangePortalAddressLight, accounts[0])
+  console.log(smartFundAddress, ExchangePortalAddressV7, accounts[0])
   const smartFund = new web3.eth.Contract(SmartFundABIV7, smartFundAddress)
   await smartFund.methods.setNewExchangePortal(
-    ExchangePortalAddressLight
+    ExchangePortalAddressV7
   ).send({ from: accounts[0] })
   closeModal()
 }
@@ -21,7 +22,7 @@ function MigrateToNewPortal(props) {
   return (
     <>
       {
-        String(props.exchangePortalAddress).toLowerCase() !== String(ExchangePortalAddressLight).toLowerCase()
+        String(props.exchangePortalAddress).toLowerCase() !== String(ExchangePortalAddressV7).toLowerCase()
           ?
           (
             <Box>
@@ -35,11 +36,11 @@ function MigrateToNewPortal(props) {
                     colorScheme='red'
                     size="sm"
                     onClick={() => updateTradePortal(
-                      props.web3, 
+                      props.web3,
                       props.accounts,
-                      props.smartFundAddress, 
+                      props.smartFundAddress,
                       props.closeModal
-                      )
+                    )
                     }
                   >
                     Update

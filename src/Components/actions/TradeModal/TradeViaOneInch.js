@@ -5,7 +5,8 @@ import {
     NeworkID,
     ERC20ABI,
     APIEnpoint,
-    ExchangePortalAddressLight,
+    // ExchangePortalAddressLight,
+    ExchangePortalAddressV7,
     ExchangePortalABIV6,
     PricePortalPancake,
     PricePortalPancakeABI,
@@ -355,7 +356,7 @@ class TradeViaOneInch extends Component {
         }
         // from test net get value from Bancor via old portal v
         else {
-            const portal = new this.props.web3.eth.Contract(ExchangePortalABIV6, ExchangePortalAddressLight)
+            const portal = new this.props.web3.eth.Contract(ExchangePortalABIV6, ExchangePortalAddressV7)
             const src = toWeiByDecimalsInput(decimalsFrom, amount.toString(10))
             return await portal.methods.getValueViaOneInch(
                 from,
@@ -490,7 +491,7 @@ class TradeViaOneInch extends Component {
                                 <Input
                                     type="number"
                                     placeholder={this.state.AmountSend}
-                                    min="0"
+                                    min={0}
                                     name="AmountSend"
                                     value={this.state.AmountSend}
                                     onChange={e => this.delayChange(e)}
@@ -524,7 +525,7 @@ class TradeViaOneInch extends Component {
                                 <Input
                                     type="number"
                                     placeholder={this.state.AmountRecive}
-                                    min="0"
+                                    min={0}
                                     name="AmountRecive"
                                     value={this.state.AmountRecive}
                                     onChange={e => this.delayChange(e)}
