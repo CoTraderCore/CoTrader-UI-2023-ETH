@@ -62,13 +62,6 @@ export const LinkFee = '100000000000000000'
 // export const ExchangePortalDeprecated = '0xC8A2Ba3E9CE03f78551d7dE5706Cc275d4D3130f'
 export const MockExchangePortal = '0xe81F3fF8c7D6F2E3f19A7872fD32D5EAC5491C91'
 
-
-export const PricePortalPancake = "0xaBbD442181DE83c54c4Cf14BbF5C03fBda8887df"
-// pools, defi, 1inch
-// export const ExchangePortalAddressFull = '0x5f0b0f12718c256a0E172d199AA50F7456fd24AA'
-// only erc20
-// export const ExchangePortalAddressLight = '0x169331EC668f3ACa19feb89AC300C4b291c4C586'
-// export const WETH = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c'
 export const WETH='0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2'
 
 
