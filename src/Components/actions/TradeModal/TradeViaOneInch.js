@@ -8,8 +8,6 @@ import {
     // ExchangePortalAddressLight,
     ExchangePortalAddressV7,
     ExchangePortalABIV6,
-    PricePortalPancake,
-    PricePortalPancakeABI,
     WETH
 } from '../../../config.js'
 import { Button, FormControl, InputGroup, Alert, AlertIcon, FormLabel, Box, Input, Text, } from '@chakra-ui/react'
@@ -65,18 +63,6 @@ class TradeViaOneInch extends Component {
             this.setState({ ERRORText: '' })
         }
     }
-
-    verifyConnector = async (_tokenTo) => {
-        const tokenTo = String(_tokenTo).toLowerCase() === "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
-            ? WETH
-            : _tokenTo
-
-        const pricePortal = new this.props.web3.eth.Contract(PricePortalPancakeABI, PricePortalPancake)
-        const data = await pricePortal.methods.findConnector(tokenTo).call()
-        return data[0]
-    }
-
-
 
     // get tokens addresses and symbols from paraswap api
     initData = async () => {
