@@ -31,7 +31,7 @@ class WalletInfo extends Component {
                                     this.state.ETHBalance > 0 ?
                                         (
                                             <Text display="flex" justifyContent="center" alignItems="center" >
-                                                <strong style={{ padding: "0px 10px", color: "#039be5", fontWeight: "500", }}>{this.state.ETHBalance}: <span style={{ color: "gray" }}>BNB</span></strong>
+                                                <strong style={{ padding: "0px 10px", color: "#039be5", fontWeight: "500", }}>{this.state.ETHBalance}: <span style={{ color: "gray" }}>ETH</span></strong>
                                             </Text>
                                         ) : null
                                 }

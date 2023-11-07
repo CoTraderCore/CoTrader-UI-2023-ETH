@@ -47,7 +47,7 @@ function Deposit(props) {
                             agree ? (
                                 <FormControl>
                                     {
-                                        props.mainAsset === "ETH" || props.mainAsset === "BNB"
+                                        props.mainAsset === "ETH" || props.mainAsset === "ETH"
                                             ?
                                             (
                                                 <DepositETH
@@ -79,7 +79,7 @@ function Deposit(props) {
                                 ?
                                 (
 
-                                    <Alert mt={3} status="error" >{`We recommend depositing only to funds version 9 and higher, version of this fund is ${props.version}`}</Alert>
+                                    <Alert mt={3} status="error" >{`We recommend depositing only to funds version 7 and higher, version of this fund is ${props.version}`}</Alert>
                                 ) : null
                         }
 

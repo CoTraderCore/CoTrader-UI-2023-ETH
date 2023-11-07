@@ -57,7 +57,7 @@ const AssetsAlocationChart = ({ AssetsData, version }) => {
                 chartData.labels && chartData.labels.length > 0 ? (
                     <Card>
                         <Box >
-                            <Heading mb={5} fontSize="xl" fontWeight="700" color={allbtnBg} textTransform="capitalize">Asset allocation in BNB value</Heading>
+                            <Heading mb={5} fontSize="xl" fontWeight="700" color={allbtnBg} textTransform="capitalize">Asset allocation in ETH value</Heading>
                             <ApexChart
                                 options={{
                                     labels: chartData.labels,

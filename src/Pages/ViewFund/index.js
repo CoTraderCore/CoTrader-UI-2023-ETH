@@ -318,7 +318,7 @@ function ViewFund(props) {
                                                     }
                                                 />
                                             }
-                                            name='Fund profit in BNB'
+                                            name='Fund profit in ETH'
                                             value={profitInEth}
                                         />
                                         <ShadowBox
@@ -344,7 +344,7 @@ function ViewFund(props) {
                                                     icon={<Icon w='28px' h='28px' as={MdAttachMoney} color={brandColor} />}
                                                 />
                                             }
-                                            name='Fund value in BNB'
+                                            name='Fund value in ETH'
                                             value={valueInEth}
                                         />
                                         <ShadowBox
@@ -444,7 +444,7 @@ function ViewFund(props) {
                                                                 <Tr>
                                                                     <Th>Token</Th>
                                                                     <Th>% from fund</Th>
-                                                                    <Th>Value in BNB</Th>
+                                                                    <Th>Value in ETH</Th>
                                                                     <Th>Balance</Th>
                                                                 </Tr>
                                                             </Thead>

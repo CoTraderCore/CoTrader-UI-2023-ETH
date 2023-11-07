@@ -35,7 +35,7 @@ function PieChartTable({fundData}) {
           <Tr >
             <Th color={headerColor}>Token</Th>
             <Th color={headerColor} >% from fund</Th>
-            <Th color={headerColor}>Value in BNB</Th>
+            <Th color={headerColor}>Value in ETH</Th>
             <Th color={headerColor}>Balance</Th>
           </Tr>
         </Thead>

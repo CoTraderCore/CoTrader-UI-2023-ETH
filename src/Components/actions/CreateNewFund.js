@@ -12,7 +12,7 @@ function CreateNewFund(props) {
 
     const [show, setShow] = useState(false);
     const [percent, setPercent] = useState();
-    const [fundAsset, setFundAsset] = useState('BNB');
+    const [fundAsset, setFundAsset] = useState('ETH');
     const [fundName, setFundName] = useState('');
     const [tradeVerification, setTradeVerification] = useState(true);
     const createNewFund = async () => {
@@ -24,7 +24,7 @@ function CreateNewFund(props) {
                     const percentMultiplier = 100;
                     const verified = tradeVerification;
                     const block = await props.web3.eth.getBlockNumber();
-                    const coreAsset = fundAsset === 'BNB' ? ETH_ADDRESS : USD_ADDRESS;
+                    const coreAsset = fundAsset === 'ETH' ? ETH_ADDRESS : USD_ADDRESS;
 
                     console.log(name, percent, coreAsset, verified, fundAsset);
 
@@ -83,7 +83,7 @@ function CreateNewFund(props) {
     const modalClose = () => {
         setShow(false);
         setPercent(20);
-        setFundAsset('BNB');
+        setFundAsset('ETH');
         setFundName('');
         setTradeVerification(true);
     };
@@ -122,7 +122,7 @@ function CreateNewFund(props) {
                                     onChange={e => change(e)}
                                 />
                             </InputGroup>
-                            <FormLabel mt={5} display={'flex'}>Performance Fee % <UserInfo info="This is the % the fund manager earns for the profits earned, relative to main fund asset (BNB, USD or COT)." /></FormLabel>
+                            <FormLabel mt={5} display={'flex'}>Performance Fee % <UserInfo info="This is the % the fund manager earns for the profits earned, relative to main fund asset (ETH, USD or COT)." /></FormLabel>
                             <InputGroup width="100%">
                                 <InputLeftAddon children="%" />
                                 <NumberInput width="100%" value={percent} onChange={(value) => setPercent(value)} min={1} >
@@ -135,7 +135,7 @@ function CreateNewFund(props) {
                             </InputGroup>
                             <FormLabel mt={5} display={'flex'}>Main fund asset % <UserInfo info="With the help of this asset, investors will invest, calculate fund value ect" /></FormLabel>
                             <Select name="FundAsset" onChange={change}>
-                                <option value="BNB">BNB</option>
+                                <option value="ETH">ETH</option>
                                 <option value="USD">USD</option>
                             </Select>
                             <FormLabel mt={5} display={'flex'}>Limit Tokens <UserInfo info="This gives investors confidence that even if the trader's key is stolen, the worst a hacker can do is trade to legit tokens, not likely to a token just created by the trader to exit scam the fund, leaving it without value." /></FormLabel>

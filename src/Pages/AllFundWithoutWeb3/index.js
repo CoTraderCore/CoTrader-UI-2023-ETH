@@ -69,7 +69,7 @@ function AllFundWithoutWeb3(props) {
                                                         }
                                                     />
                                                 }
-                                                name='Fund profit in BNB'
+                                                name='Fund profit in ETH'
                                                 value={fromWei(String(item.profitInETH), 'ether')}
                                             />
                                             <ShadowBox
@@ -95,7 +95,7 @@ function AllFundWithoutWeb3(props) {
                                                         icon={<Icon w='28px' h='28px' as={MdAttachMoney} color={brandColor} />}
                                                     />
                                                 }
-                                                name='Fund value in BNB'
+                                                name='Fund value in ETH'
                                                 value={fromWei(String(item.valueInETH), 'ether')}
                                             />
                                             <ShadowBox

@@ -125,7 +125,7 @@ function ViewUserTx() {
                                 String(data.additionalData.src).toLowerCase() === ETH_TOKEN
                                     ?
                                     (
-                                        <React.Fragment>BNB</React.Fragment>
+                                        <React.Fragment>ETH</React.Fragment>
                                     )
                                     :
                                     (
@@ -141,7 +141,7 @@ function ViewUserTx() {
                                 String(data.additionalData.dest).toLowerCase() === ETH_TOKEN
                                     ?
                                     (
-                                        <React.Fragment>BNB</React.Fragment>
+                                        <React.Fragment>ETH</React.Fragment>
                                     )
                                     :
                                     (

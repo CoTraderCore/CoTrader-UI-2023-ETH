@@ -63,7 +63,7 @@ function UserHoldings(props) {
                             (
                                 <React.Fragment>
                                     <OrderedList>
-                                        <ListItem>My deposit in BNB value: {fromWei(calculateAddressValue, 'ether')}</ListItem>
+                                        <ListItem>My deposit in ETH value: {fromWei(calculateAddressValue, 'ether')}</ListItem>
                                         <ListItem>My profit : {fromWei(calculateAddressProfit, 'ether')}</ListItem>
                                         <ListItem>My holding in percent of fund value: {percentOfFundValue}%</ListItem>
                                     </OrderedList>
