@@ -17,7 +17,7 @@ function MigrateToV9(props) {
                     (
                         <>
                             {
-                                props.version < 9 && props.accounts[0] === props.owner
+                                props.version < 7 && props.accounts[0] === props.owner
                                     ?
                                     (
                                         <Alert status='warning'>
