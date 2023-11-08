@@ -98,7 +98,7 @@ class TradeViaUniSwap extends Component {
     ErrorMsg = () => {
         if (this.state.ERRORText.length > 0) {
             return (
-                <Alert variant="danger">
+                <Alert mt={2} status="error">
                     {this.state.ERRORText}
                 </Alert>
             )

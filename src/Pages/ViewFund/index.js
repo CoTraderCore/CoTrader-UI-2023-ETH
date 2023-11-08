@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import ShadowBox from '../../Components/Cards/ShadowBox';
 import IconBox from '../../Components/Icons/IconBox';
 import Header from '../../Components/common/Header';
-import { Box, Heading, Icon, SimpleGrid, List, ListItem, Progress, Stack, useColorModeValue, GridItem, Grid, Table, Thead, Tr, Th, Td, Tbody, Text, Button, Tooltip, Center, } from '@chakra-ui/react'
+import { Box, Heading, Icon, SimpleGrid, List, ListItem, Progress, Stack, useColorModeValue, GridItem, Grid, Table, Thead, Tr, Th, Td, Tbody, Text, Button, Tooltip, Center, Alert, AlertIcon, } from '@chakra-ui/react'
 import { MdAttachMoney, } from "react-icons/md";
 import Card from '../../Components/Card/Card';
 import Footer from '../../Components/common/footer/Footer';
@@ -31,8 +31,9 @@ import _ from 'lodash';
 import Loading from '../../Components/template/spiners/Loading';
 import FundModal from '../../Components/actions/FundModal';
 import ManagerModal from '../../Components/actions/ManagerModal';
-import { inject, observer, useObserver } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import WalletInfo from '../../Components/common/WalletInfo';
+import DashboardHeader from '../../Components/common/DashboardHeader';
 
 function ViewFund(props) {
 
@@ -219,6 +220,17 @@ function ViewFund(props) {
     const boxBg = useColorModeValue("#F4F7FE", "gray.600");
     return (
         <React.Fragment>
+        {
+            props.MobXStorage.netId && NeworkID !== props.MobXStorage.netId
+              ?
+              (
+                <Alert status="error" sx={{ color: "red", fontSize: "sm",fontWeight:"bold",display:"flex",alignItems:"center",justifyContent:"center",textTransform:"uppercase" }}><AlertIcon color="red" />please change MetaMask to ETH network</Alert>
+              )
+              : null
+          }
+          <Box mt={2} px={2}>
+            <DashboardHeader />
+          </Box>
             <Box px={2}>
                 <WalletInfo web3={props.MobXStorage.web3} accounts={props.MobXStorage.account} />
                 <Header heading="Fund Detail" />

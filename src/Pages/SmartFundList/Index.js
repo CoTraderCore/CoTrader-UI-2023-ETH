@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Box, Grid, GridItem, Icon, SimpleGrid, Stack, Text, useColorModeValue } from '@chakra-ui/react';
+import { Alert, AlertIcon, Box, Grid, GridItem, Icon, SimpleGrid, Stack, Text, useColorModeValue } from '@chakra-ui/react';
 import CreateNewFund from '../../Components/actions/CreateNewFund';
 import FilterSearch from '../../Components/Filter&Search/FilterSearch';
 import SortFunds from '../../Components/navigation/SortFunds';
@@ -13,14 +13,14 @@ import ShadowBox from '../../Components/Cards/ShadowBox';
 import PopupMsg from '../../Components/template/PopupMsg';
 import axios from 'axios';
 import { io } from 'socket.io-client';
-import { APIEnpoint } from '../../config';
+import { APIEnpoint,NeworkID } from '../../config';
 import getFundData from '../../utils/getFundData';
 import getFundsList from '../../utils/getFundsList';
 import Pending from '../../Components/template/spiners/Pending';
 import { observer, inject } from 'mobx-react';
 import Loading from '../../Components/template/spiners/Loading';
 import WalletInfo from '../../Components/common/WalletInfo';
-
+import DashboardHeader from '../../Components/common/DashboardHeader';
 function SmartFundList(props) {
 
   const [pending, setPending] = useState(false);
@@ -70,8 +70,8 @@ function SmartFundList(props) {
     };
 
     const checkPending = async () => {
-      if (props.accounts) {
-        let txCount = await axios.get(APIEnpoint + 'api/user-pending-count/' + props.accounts[0]);
+      if (props.MobXStorage.account) {
+        let txCount = await axios.get(APIEnpoint + 'api/user-pending-count/' + props.MobXStorage.account[0]);
         txCount = txCount.data.result;
         const pending = Number(txCount) === 0 ? false : true;
         if (_isMounted.current) {
@@ -127,6 +127,17 @@ function SmartFundList(props) {
 
   return (
     <React.Fragment>
+    {
+      props.MobXStorage.netId && NeworkID !== props.MobXStorage.netId
+        ?
+        (
+          <Alert status="error" sx={{ color: "red", fontSize: "sm",fontWeight:"bold",display:"flex",alignItems:"center",justifyContent:"center",textTransform:"uppercase" }}><AlertIcon color="red" />please change MetaMask to ETH network</Alert>
+        )
+        : null
+    }
+    <Box mt={2} px={2}>
+      <DashboardHeader />
+    </Box>
       {
         props.isDataLoad ?
           (

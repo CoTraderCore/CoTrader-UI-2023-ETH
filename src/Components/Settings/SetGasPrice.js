@@ -78,13 +78,13 @@ class SetGasPrice extends Component {
                     >Average</Button>
 
                     <Button
-                        colorScheme={this.state.gasPriceState === "low" ? "orange" : "green"}
+                        colorScheme={this.state.gasPriceState === "low" ? "orange" : "red"}
                         variant="outline"
                         size="sm"
                         onClick={() => this.setGasPrice("low")}
                     >Low</Button>
                 </ButtonGroup>
-                <Text mt={2} borderRadius={5} sx={{background:"lightgray",width:"100%",color:"#fff",fontWeight:"500",fontsize:"10px"}}>Current {this.state.gasPrice / 1000000000} gwei</Text>
+                <Text mt={2} borderRadius={5} sx={{background:"gray",width:"100%",fontWeight:"500",fontsize:"10px"}}>Current {this.state.gasPrice / 1000000000} gwei</Text>
             </Box>
         )
     }

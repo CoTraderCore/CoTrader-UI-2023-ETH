@@ -22,7 +22,6 @@ import { inject } from 'mobx-react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './Components/common/Navbar';
 import Sidebar from './Components/common/Sidebar';
-import DashboardHeader from './Components/common/DashboardHeader';
 
 function App(props) {
   const [isDataLoad, setIsDataLoad] = useState(false);
@@ -80,9 +79,6 @@ function App(props) {
                   <Sidebar isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
                 </GridItem>
                 <GridItem className='example' sx={{ flexGrow: 1, overflow: "auto", }}>
-                  <Box mt={2} px={2}>
-                    <DashboardHeader />
-                  </Box>
                   <Switch>
                     <Route exact path="/" render={() => <SmartFundList MobXStorage={props.MobXStorage} isDataLoad={isDataLoad} setIsDataLoad={setIsDataLoad} />} />
                     <Route path="/fund/:address" render={() => <ViewFund MobXStorage={props.MobXStorage} />} />
